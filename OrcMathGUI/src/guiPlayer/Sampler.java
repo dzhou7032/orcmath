@@ -9,10 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
+import davidPlayGround.Animation;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.FileRequester;
@@ -126,6 +125,7 @@ public class Sampler extends GUIApplication implements FileRequester{
 				}
 			}); 
 			viewObjects.add(cb);
+		//	viewObjects.add(new Animation());
 			
 			
 				
