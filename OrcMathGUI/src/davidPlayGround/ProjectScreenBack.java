@@ -24,6 +24,7 @@ public class ProjectScreenBack extends FullFunctionScreen {
 			@Override
 			public void act() {
 				MiniProjectGUI.ChristplusCard.setScreen(MiniProjectGUI.front);
+				MiniProjectGUI.ChristplusCard.setBounds(100,100,950,700);
 			}
 		});
 		viewObjects.add(changeButton);
