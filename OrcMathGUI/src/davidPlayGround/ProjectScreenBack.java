@@ -19,7 +19,6 @@ public class ProjectScreenBack extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		santa = new Graphic(500, 40, 100, 100, "resources/santa.jpg");
 		changeButton = new Button(50,50,60,40,"Change", new Action() {
 			
 			@Override
@@ -28,7 +27,6 @@ public class ProjectScreenBack extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(changeButton);
-		viewObjects.add(santa);
 	}
 	
 }

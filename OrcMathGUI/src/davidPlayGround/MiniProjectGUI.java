@@ -6,24 +6,23 @@ public class MiniProjectGUI extends GUIApplication {
 
 	static MiniProjectGUI ChristplusCard;
 	static ProjectScreen front;
-	static ProjectScreen back;
+	static ProjectScreenBack back;
 	
 	
 	public MiniProjectGUI(int width, int height) {
 		super(width, height);
+		setUndecorated(true);
 		setVisible(true);
 	}
 
 	@Override
 	public void initScreen() {
-		ProjectScreen PS = new ProjectScreen(getWidth(), getHeight());
-		setScreen(PS);
-		
+		front = new ProjectScreen(500, 500);
+		setScreen(front);
+		back = new ProjectScreenBack(1000,1000);
 	}
 	public static void main(String[] args) {
-		ChristplusCard = new MiniProjectGUI(500, 850);
-		front = new ProjectScreen(600,400);
-		back = new ProjectScreen(600,400);
+		ChristplusCard = new MiniProjectGUI(950, 750);
 		Thread go = new Thread(ChristplusCard);
 		go.start();
 	}
