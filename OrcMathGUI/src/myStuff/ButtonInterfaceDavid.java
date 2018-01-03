@@ -1,5 +1,7 @@
 package myStuff;
 
-public interface ButtonInterfaceDavid {
+import guiTeacher.interfaces.Clickable;
+
+public interface ButtonInterfaceDavid extends Clickable {
 
 }

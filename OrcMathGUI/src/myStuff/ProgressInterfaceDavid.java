@@ -1,5 +1,7 @@
 package myStuff;
 
-public interface ProgressInterfaceDavid {
+import guiTeacher.interfaces.Visible;
+
+public interface ProgressInterfaceDavid extends Visible {
 
 }
