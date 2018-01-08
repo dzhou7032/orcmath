@@ -1,17 +1,19 @@
 package myStuff;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import guiTeacher.components.Action;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 
 public class SimonScreenDavid extends ClickableScreen implements Runnable {
-	TextLabel currentRound;
+	TextLabel label;
 	ButtonInterfaceDavid[] buttonsOnScreen;
-	ProgressInterfaceDavid gameinfo;
-	ArrayList<MoveInterfaceDavid> Sequence;
+	ProgressInterfaceDavid progress;
+	ArrayList<MoveInterfaceDavid> sequence;
 	
 	int roundNumber;
 	boolean acceptingInput;
@@ -26,7 +28,49 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		label.setText("");
+		nextRound();
+		
+	}
+
+	private void nextRound() {
+		acceptingInput = false;
+		roundNumber++;
+		MoveInterfaceDavid move = randomMove();
+		sequence.add(move);
+		progress.setRound(roundNumber);
+		progress.setSequenceSize(sequence.size());
+		changeText("Simon's turn");
+		label.setText("");
+		playSequence();
+		changeText("Your turn");
+		acceptingInput = true;
+		sequenceIndex = 0;
+	}
+	private void playSequence() {
+		ButtonInterfaceDavid b = null;
+		for(int i = 0; i < sequence.size(); i++) {
+			if(b != null) {
+				b.dim();
+				b = sequence.get(i).getButton();
+				b.highlight();
+				int sleepTime = (10000 - (roundNumber * 100)) + 1000;
+				try {
+					Thread.sleep(sleepTime);
+				}catch(InterruptedException e){
+					e.printStackTrace();
+				}
+				b.dim();
+			}
+		}
+	}
+	private void changeText(String string) {
+		label.setText(string);
+		try {
+			Thread.sleep(1000);
+		}catch(InterruptedException e){
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -66,7 +110,53 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 	}
 
 	private void addButtons() {
-		// TODO Auto-generated method stub
+		int numberOfButtons = 4;
+		buttonsOnScreen[numberOfButtons] = null;
+		Color[] colors = new Color[numberOfButtons];
+		colors[0] = Color.red;
+		colors[1] = Color.blue;
+		colors[2] = Color.green;
+		colors[3] = Color.yellow;
 		
+		for (int i =0;i<buttonsOnScreen.length;i++) {
+		ButtonInterfaceDavid d = getAbutton();
+		buttonsOnScreen[i] = d;
+		d.setColor(colors[i]);
+		d.setX(250);
+		d.setY(50);
+		d.setAction(new Action(){
+			public void act() {
+				if(acceptingInput) {
+					Thread blink = new Thread(new Runnable() {
+						public void run() {
+							d.highlight();
+							try {
+								Thread.sleep(800);
+							}catch(InterruptedException e){
+								e.printStackTrace();
+							}
+							d.dim();
+						}
+					});	
+					blink.start();
+					if(d==sequence.get(sequenceIndex).getButton()) {
+						sequenceIndex++;
+					}else {
+						ProgressInterfaceDavid.gameOver();
+					}
+					if(sequenceIndex == sequence.size()) {
+						Thread nextRound = new Thread(SimonScreenDavid.this);
+						nextRound.start();
+					}
+				}
+			}
+		});
+		}
+		
+	}
+
+	private ButtonInterfaceDavid getAbutton() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
