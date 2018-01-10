@@ -11,7 +11,7 @@ import guiTeacher.components.Button;
 public class ButtonJessi extends Button implements ButtonInterfaceDavid{
 
 	public ButtonJessi(int x, int y, int w, int h, String text, Action action) {
-		super(x, y, 20, 30, "", action);
+		super(x, y, w, h, "", action);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class ButtonJessi extends Button implements ButtonInterfaceDavid{
 		drawShape(g, hover);
 		g.setColor(getForeground());
 	}
-
+	
 
 	
 }

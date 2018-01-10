@@ -104,8 +104,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 	}
 
 	private ProgressInterfaceDavid getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressJessi(40, 300, 250, 250);
 	}
 
 	private void addButtons() {
@@ -121,8 +120,8 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 			ButtonInterfaceDavid d = getAButton();
 			buttonsOnScreen[i] = d;
 			d.setColor(colors[i]);
-			d.setX(i+10);
-			d.setY(i+10);
+			d.setX(i+50);
+			d.setY(i+30);
 		d.setAction(new Action(){
 			public void act() {
 				if(acceptingInput) {
@@ -155,7 +154,6 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 	}
 
 	private ButtonInterfaceDavid getAButton() {
-		
 		return new ButtonJessi(0,0,50,50,"", null);
 	}
 }
