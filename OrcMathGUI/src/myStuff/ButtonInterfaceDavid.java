@@ -3,6 +3,7 @@ package myStuff;
 import java.awt.Color;
 
 import guiTeacher.components.Action;
+import guiTeacher.components.Button;
 import guiTeacher.interfaces.Clickable;
 
 public interface ButtonInterfaceDavid extends Clickable {
@@ -11,6 +12,5 @@ public interface ButtonInterfaceDavid extends Clickable {
 	void setAction(Action a);
 	void highlight();
 	void dim();
-	void getAbutton();
 
 }

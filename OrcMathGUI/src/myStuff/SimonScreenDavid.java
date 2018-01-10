@@ -52,7 +52,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		for(int i = 0; i < sequence.size(); i++) {
 			if(b != null) {
 				b.dim();
-				b = sequence.get(i).getButton();
+				b = sequence.get(i).getAButton();
 				b.highlight();
 				int sleepTime = (10000 - (roundNumber * 100)) + 1000;
 				try {
@@ -119,11 +119,11 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		colors[3] = Color.yellow;
 		
 		for (int i =0;i<buttonsOnScreen.length;i++) {
-		ButtonInterfaceDavid d = getAbutton();
-		buttonsOnScreen[i] = d;
-		d.setColor(colors[i]);
-		d.setX(250);
-		d.setY(50);
+			ButtonInterfaceDavid d = getAButton();
+			buttonsOnScreen[i] = d;
+			d.setColor(colors[i]);
+			d.setX(i+10);
+			d.setY(i+10);
 		d.setAction(new Action(){
 			public void act() {
 				if(acceptingInput) {
@@ -139,7 +139,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 						}
 					});	
 					blink.start();
-					if(d==sequence.get(sequenceIndex).getButton()) {
+					if(d==sequence.get(sequenceIndex).getAButton()) {
 						sequenceIndex++;
 					}else {
 						ProgressInterfaceDavid.gameOver();
@@ -155,8 +155,8 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		
 	}
 
-	private ButtonInterfaceDavid getAbutton() {
-		// TODO Auto-generated method stub
-		return null;
+	private ButtonInterfaceDavid getAButton() {
+		
+		return new ButtonJessi(0,0,50,50,"", null);
 	}
 }
