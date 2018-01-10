@@ -111,7 +111,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 
 	private void addButtons() {
 		int numberOfButtons = 4;
-		buttonsOnScreen[numberOfButtons] = null;
+		buttonsOnScreen = new ButtonInterfaceDavid[numberOfButtons];
 		Color[] colors = new Color[numberOfButtons];
 		colors[0] = Color.red;
 		colors[1] = Color.blue;

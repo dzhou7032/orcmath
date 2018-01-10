@@ -17,4 +17,16 @@ public class ProgressJessi extends Component implements ProgressInterfaceDavid{
 		
 	}
 
+	@Override
+	public void setSequenceSize(int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setRound(int roundNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

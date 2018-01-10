@@ -1,6 +1,6 @@
 package myStuff;
 
-public class MoveInterfaceDavid {
+public interface MoveInterfaceDavid {
 
 	public ButtonInterfaceDavid getButton() {
 		// TODO Auto-generated method stub
