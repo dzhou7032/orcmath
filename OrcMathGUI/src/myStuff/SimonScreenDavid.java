@@ -38,8 +38,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		roundNumber++;
 		MoveInterfaceDavid move = randomMove();
 		sequence.add(move);
-		progress.setRound(roundNumber);
-		progress.setSequenceSize(sequence.size());
+	//	progress.setSequenceSize(sequence.size());
 		changeText("Simon's turn");
 		label.setText("");
 		playSequence();

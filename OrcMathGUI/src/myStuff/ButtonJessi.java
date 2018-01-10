@@ -2,6 +2,7 @@ package myStuff;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import guiTeacher.Utilities;
 import guiTeacher.components.Action;
@@ -15,22 +16,27 @@ public class ButtonJessi extends Button implements ButtonInterfaceDavid{
 	
 	@Override
 	public void setColor(Color color) {
-		setBackground(color);
+		this.setBackground(color);
 	}
 	
 	@Override
 	public void highlight() {
 		Color gotColor = getBackgroundColor();
-		setBackground(Utilities.lighten(gotColor, 50));
+		this.setBackground(Utilities.lighten(gotColor, 50));
 	}
 	
 	@Override
 	public void dim()
 	{
 		Color gotColor = getBackgroundColor();
-		setBackground(Utilities.lighten(gotColor, -50));
+		this.setBackground(Utilities.lighten(gotColor, -50));
 	}
-	
+	public void drawButton(Graphics2D g, boolean hover) {
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
+		drawShape(g, hover);
+		g.setColor(getForeground());
+	}
 
 
 	
