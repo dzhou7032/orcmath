@@ -38,7 +38,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		roundNumber++;
 		MoveInterfaceDavid move = randomMove();
 		sequence.add(move);
-	//	progress.setSequenceSize(sequence.size());
+		progress.setSequenceSize(sequence.size());
 		changeText("Simon's turn");
 		label.setText("");
 		playSequence();
@@ -117,7 +117,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		colors[3] = Color.yellow;
 		
 		for (int i =0;i<buttonsOnScreen.length;i++) {
-			ButtonInterfaceDavid d = getAButton();
+			final ButtonInterfaceDavid d = getAButton(50,i*70+70,60,60);
 			buttonsOnScreen[i] = d;
 			d.setColor(colors[i]);
 			d.setX(i+50);
@@ -153,7 +153,7 @@ public class SimonScreenDavid extends ClickableScreen implements Runnable {
 		
 	}
 
-	private ButtonInterfaceDavid getAButton() {
-		return new ButtonJessi(0,0,50,50,"", null);
+	private ButtonInterfaceDavid getAButton(int x,int y,int w,int h) {
+		return new ButtonJessi(x,y,w,h,"", null);
 	}
 }
