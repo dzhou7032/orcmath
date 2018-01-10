@@ -26,6 +26,7 @@ public class ProgressJessi extends Component implements ProgressInterfaceDavid{
 			g.drawString("You Lose", 150, 50);
 		}
 	}
+	
 
 	@Override
 	public void setRound(int x) {

@@ -17,12 +17,14 @@ public class ButtonJessi extends Button implements ButtonInterfaceDavid{
 	@Override
 	public void setColor(Color color) {
 		this.setBackground(color);
+		update();
 	}
 	
 	@Override
 	public void highlight() {
 		Color gotColor = getBackgroundColor();
 		this.setBackground(Utilities.lighten(gotColor, 50));
+		update();
 	}
 	
 	@Override
@@ -30,6 +32,7 @@ public class ButtonJessi extends Button implements ButtonInterfaceDavid{
 	{
 		Color gotColor = getBackgroundColor();
 		this.setBackground(Utilities.lighten(gotColor, -50));
+		update();
 	}
 	public void drawButton(Graphics2D g, boolean hover) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
